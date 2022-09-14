@@ -3,29 +3,11 @@
 }
 
 h2{
-  
-}
-
-td{ 
-  font-weight: bold; 
-  text-align: center;;
-}
-
-tr{
-  border-bottom:1px solid lightgray; 
-}
-
-img {
-  height: 30px;
-  width: 30px; 
-}
-
-.homepage{
-  background: linear-gradient(135deg, rgba(0, 183, 255, 0), rgb(29, 53, 192));
+  text-align: center;
 }
 
 .container{
-  background: linear-gradient(135deg, rgba(0, 183, 255, 0), rgb(29, 53, 192));
+  background: white;
   width: 100%;
   min-height: 100vh;
   display: flex;
@@ -34,16 +16,16 @@ img {
 }
 
 .app-wrapper{
-  background-color: #fff;
-  min-width: 350px;
-  min-height: 650px;
-  padding: 30px;
+  background-color: silver;
+  min-width: 200px;
+  min-height: 500px;
+  padding: 50px;
   box-sizing: border-box;
-  border-radius: 5px;
+  border-radius: 50px;
 }
 
 .title{
-  color:rgb(29, 53, 192);
+  color: black;
   text-align: center;
   margin: 80px 0px 40px 0px;
 
@@ -53,8 +35,9 @@ img {
 .email,
 .password{
   margin: 20px;
-  color: rgb(29, 53, 192);
+  color: black;
   font-size: 16px;
+  font: bolder;
 }
 
 .password{
@@ -84,7 +67,7 @@ img {
   border-radius: 25px;
   color: white;
   padding: 10px 60px;
-  background: linear-gradient(to right, #8090d6, #303eb9);
+  background: black;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
   rgba(0, 0, 0, 0.2) 0px 15px 12px;
   margin: auto;

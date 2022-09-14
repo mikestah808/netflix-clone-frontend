@@ -2,8 +2,9 @@ import React from 'react'
 
 function Login() {
   return (
+    <>
+    <h2>MOVIE KEEPER</h2>
     <div className="container"> 
-    <h2>MOVIE TRACKER</h2>
     <div className="app-wrapper">
       <div>
         <h2 className="title">Account Login</h2>
@@ -27,6 +28,7 @@ function Login() {
       </form>
     </div>
   </div>
+  </>
   )
 }
 
