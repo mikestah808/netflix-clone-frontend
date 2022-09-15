@@ -1,9 +1,11 @@
 import React from 'react'
+import Button from '@mui/material/Button';
+import { Link } from 'react-router-dom';
 
 function Login() {
   return (
     <>
-    <h2>MOVIE KEEPER</h2>
+    <h2>Welcome to MovieWatch!</h2>
     <div className="container"> 
     <div className="app-wrapper">
       <div>
@@ -26,6 +28,9 @@ function Login() {
         </div>
           <input className="submit" type="submit" value="Login" />
       </form>
+      <br/>
+      <div>Don't have an account? Sign up</div>
+      <Button color="inherit" to="/signup" component={ Link }>here</Button>
     </div>
   </div>
   </>
