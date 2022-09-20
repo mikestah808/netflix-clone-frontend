@@ -1,40 +1,52 @@
-import React from 'react'
-import Button from '@mui/material/Button';
-import { Link } from 'react-router-dom';
+import React, { useState, useContext } from 'react'
+import { UserContext } from "../context/user"
 
 function Login() {
+    const {login} = useContext(UserContext)
+
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
+    const [error, setError] = useState("")
+
+
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        fetch("/login", {
+          method: "POST",
+          headers: {"Content-Type": "application/json"},
+          body: JSON.stringify({
+            email: email,
+            password: password
+          })
+        })
+        .then((res) => res.json())
+        .then(user => {
+          login(user)
+        })
+    }
+
   return (
-    <>
-    <h2>Welcome to MovieWatch!</h2>
-    <div className="container"> 
-    <div className="app-wrapper">
-      <div>
-        <h2 className="title">Account Login</h2>
-      </div>
-      <form className="form-wrapper">
-        <div className="username">
-            <label className="label">Username</label>
+    <div>
+        <form onSubmit={handleSubmit}>
+            <label>Email: </label>
             <input 
-            className="input" 
-            type="text" 
-            />
-        </div>
-        <div className="password">
-            <label className="label">Password</label>
+                type="text"
+                id="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+            /> <br />
+            <label>Password: </label>
             <input 
-            className="input" 
-            type="password"
+                type="text"
+                id="password"
+                value={password}
+                onChange={(e)=> setPassword(e.target.value)}
             />
-        </div>
-          <input className="submit" type="submit" value="Login" />
-      </form>
-      <br/>
-      <div>Don't have an account? Sign up</div>
-      <Button color="inherit" to="/signup" component={ Link }>here</Button>
+        </form>
     </div>
-  </div>
-  </>
   )
 }
 
-export default Login
+
+export default Login;
