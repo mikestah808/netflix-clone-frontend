@@ -16,7 +16,7 @@ function UserProvider({ children }) {
   },[])
 
 
-  const login = () => {
+  const login = (user) => {
     setUser(user)
   }
 
@@ -31,9 +31,7 @@ function UserProvider({ children }) {
 
 
     return (
-      <UserProvider value={{user, login, logout, signup}}>
-        {children}
-      </UserProvider>
+      <UserContext.Provider value={{user,login, logout, signup}}>{children}</UserContext.Provider>
     );
 }
 

@@ -4,7 +4,9 @@ import { UserContext } from "../context/user"
 function Signup() {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
-    const [passwordConfirmation, setPasswordConfirmation] = useState("")
+    const [firstName, setFirstName] = useState("")
+    const [lastName, setLastName] = useState("")
+    // const [passwordConfirmation, setPasswordConfirmation] = useState("")
     const [errorsList, setErrorsList] = useState([])
 
     const {signup} = useContext(UserContext)
@@ -17,20 +19,21 @@ function Signup() {
             method: "POST", 
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify({
+                first_name: firstName,
+                last_name: lastName,
                 email: email,
-                password: password,
-                password_confirmation: passwordConfirmation
+                password: password
             })
         })
-        .then((resp) => resp.json())
-        .then((user) => {
+        .then(resp => resp.json())
+        .then(user => {
             if(!user.errors) {
                 signup(user)
-                // history.push("/")
             } else {
+                setFirstName("")
+                setLastName("")
                 setEmail("")
                 setPassword("")
-                setPasswordConfirmation("")
                 const errorsLis = user.errors.map(error => <li>{error}</li>)
                 setErrorsList(errorsLis)
             }
@@ -41,6 +44,20 @@ function Signup() {
   return (
     <div>
         <form onSubmit={handleSubmit}>
+        <label>First Name: </label>
+            <input 
+                type="text"
+                id="first_name"
+                value={firstName}
+                onChange={(e) => setFirstName(e.target.value)}
+            /> <br />
+            <label>Last Name: </label>
+            <input 
+                type="text"
+                id="last_name"
+                value={lastName}
+                onChange={(e) => setLastName(e.target.value)}
+            /> <br />
             <label>Email: </label>
             <input 
                 type="text"
@@ -55,13 +72,13 @@ function Signup() {
                 value={password}
                 onChange={(e)=> setPassword(e.target.value)}
             /> <br />
-            <label>Confirm Password: </label>
-            <input 
+            {/* <label>Confirm Password: </label> */}
+            {/* <input 
                 type="password"
                 id="password_confirmation"
                 value={passwordConfirmation}
                 onChange={(e) => setPasswordConfirmation(e.target.value)}
-            /> <br />
+            /> <br /> */}
             <input type="submit"/>
         </form>
         <ul>

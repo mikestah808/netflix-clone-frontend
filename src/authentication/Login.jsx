@@ -23,6 +23,7 @@ function Login() {
         .then((res) => res.json())
         .then(user => {
           login(user)
+          console.log("you have successfuly logged in")
         })
     }
 
@@ -43,6 +44,8 @@ function Login() {
                 value={password}
                 onChange={(e)=> setPassword(e.target.value)}
             />
+            <br />
+            <input type="submit"/>
         </form>
     </div>
   )
