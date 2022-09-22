@@ -1,8 +1,10 @@
 import React from 'react'
 
-function Genre() {
+function Genre({ name }) {
   return (
-    <div>Genre</div>
+    <div>
+      {/* {name} */}
+    </div>
   )
 }
 

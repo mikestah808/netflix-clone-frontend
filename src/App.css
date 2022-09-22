@@ -6,11 +6,11 @@ h2{
   text-align: center;
 }
 
-p {
+/* p {
   color: red;
   text-align: center;
   display: flexbox;
-}
+} */
 
 .container{
   background: white;

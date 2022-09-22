@@ -1,8 +1,21 @@
 import React from 'react'
+import Genre from './Genre'
 
-function Genres() {
+function Genres({ user }) {
+
+  console.log("user", user)
+
+//   const renderGenres = user.genres.map((genre) => {
+//     return <Genre key={genre.id} genre={genre} />
+// })
+
+
+
+
   return (
-    <div>Genres</div>
+    <div>
+      {/* {renderGenres} */}
+    </div>
   )
 }
 

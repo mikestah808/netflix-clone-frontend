@@ -8,6 +8,8 @@ import Signup from './authentication/Signup'
 import Login from './authentication/Login'
 
 function App(props) {
+
+
   return (
     <div className='App'>
       <UserProvider>

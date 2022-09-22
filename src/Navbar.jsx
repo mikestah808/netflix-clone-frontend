@@ -26,7 +26,7 @@ function NavBar() {
           <Toolbar>
             <h3>Welcome, {user.first_name}!</h3>
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-              MovieWatch
+              Movie Vault
             </Typography>
             <NavLink to="/login">
             <Button color="inherit" onClick={handleLogout}>Logout</Button>
