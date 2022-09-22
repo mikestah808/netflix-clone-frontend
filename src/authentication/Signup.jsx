@@ -2,22 +2,20 @@ import React, { useState, useContext } from 'react'
 import { UserContext } from "../context/user"
 
 function Signup() {
+    const {signup} = useContext(UserContext)
+
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [firstName, setFirstName] = useState("")
     const [lastName, setLastName] = useState("")
-    // const [passwordConfirmation, setPasswordConfirmation] = useState("")
     const [errorsList, setErrorsList] = useState([])
-
-    const {signup} = useContext(UserContext)
-
 
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        fetch("/signup", {
-            method: "POST", 
-            headers: {"Content-Type": "application/json"},
+        fetch('/signup',{
+            method: 'POST', 
+            headers: { 'Content-Type': 'application/json'},
             body: JSON.stringify({
                 first_name: firstName,
                 last_name: lastName,
@@ -25,16 +23,16 @@ function Signup() {
                 password: password
             })
         })
-        .then(resp => resp.json())
+        .then(res => res.json())
         .then(user => {
-            if(!user.errors) {
+            if (!user.errors) {
                 signup(user)
             } else {
                 setFirstName("")
                 setLastName("")
                 setEmail("")
                 setPassword("")
-                const errorsLis = user.errors.map(error => <li>{error}</li>)
+                const errorsLis = user.errors.map(e => <li>{e}</li>)
                 setErrorsList(errorsLis)
             }
         })
@@ -72,18 +70,11 @@ function Signup() {
                 value={password}
                 onChange={(e)=> setPassword(e.target.value)}
             /> <br />
-            {/* <label>Confirm Password: </label> */}
-            {/* <input 
-                type="password"
-                id="password_confirmation"
-                value={passwordConfirmation}
-                onChange={(e) => setPasswordConfirmation(e.target.value)}
-            /> <br /> */}
             <input type="submit"/>
         </form>
-        <ul>
+        <p>
             {errorsList}
-        </ul>
+        </p>
     </div>
   )
 }
