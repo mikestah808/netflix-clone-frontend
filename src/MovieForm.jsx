@@ -111,13 +111,14 @@ const HelperText = styled((props) => {
   font-size: 0.875rem;
 `;
 
-function MovieForm({ onCreateMovie, genres, setGenres, selectedGenre, setSelectedGenre }) {
+function MovieForm({ onCreateMovie, genres }) {
 
   //movie state
   const [title, setTitle] = useState("")
   const [description, setDescription] = useState("")
   const [image, setImage] = useState("")
   const [releaseDate, setReleaseDate] = useState("")
+  const [selectedGenre, setSelectedGenre] = useState({});
 
 
   function handleTitle(event) {
@@ -137,9 +138,12 @@ function MovieForm({ onCreateMovie, genres, setGenres, selectedGenre, setSelecte
   }
 
   function handleChange(event){ 
+    const findGenre = genres.find((genre) => genre.id === event.target.value)
+    setSelectedGenre(findGenre)
     // setGenres(event.target.value);
     // this function should be able to grab the genre that is clicked, and have the value of that genre appear as the selected value 
   };
+
 
 
   function handleMovieSubmit(e){
@@ -148,6 +152,7 @@ function MovieForm({ onCreateMovie, genres, setGenres, selectedGenre, setSelecte
     const formData = {
       title: title,
       description: description,
+      genre_id : selectedGenre.id,
       image_url: image,
       release_date: releaseDate
     };
@@ -188,7 +193,7 @@ function MovieForm({ onCreateMovie, genres, setGenres, selectedGenre, setSelecte
       <Input type="text" onChange={handleDescription} value={description}/>
       <HelperText />
       {/* add select dropdown here  */}
-      <GenreSelect genres={genres} handleChange={handleChange}/>
+      <GenreSelect genres={genres} handleChange={handleChange} selectedGenre={selectedGenre}/>
       <Label>Image:</Label>
       <Input type="text" onChange={handleImage} value={image}/>
       <HelperText />

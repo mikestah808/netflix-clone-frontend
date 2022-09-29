@@ -4,12 +4,14 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
-function GenreSelect({ genres, handleChange }) {
+function GenreSelect({ genres, handleChange, selectedGenre }) {
  
 
   const showGenres = genres.map((genre) => {
     return <MenuItem value={genre.id} key={genre.id}>{genre.name}</MenuItem>
   })
+
+  console.log(selectedGenre.name)
 
 
   return (
@@ -20,7 +22,7 @@ function GenreSelect({ genres, handleChange }) {
         id="demo-select-small"
         label="Genre"
         onChange={handleChange}
-        // value={genre}
+        value={selectedGenre.name}
       >
         {showGenres}
       </Select>

@@ -11,7 +11,6 @@ function HomePage() {
   const { user } = useContext(UserContext)
   const [showMovieForm, setShowMovieForm] = useState(false)
   const [genres, setGenres] = useState([]);
-  const [selectedGenre, setSelectedGenre] = useState([]);
 
   // const [showGenreForm, setShowGenreForm] = useState(false)
 
@@ -47,7 +46,7 @@ function HomePage() {
       {/* <Button onClick={createGenreForm} variant="outlined">Add Genre</Button> */}
       <Button onClick={createMovieForm} variant='outlined'>Add Movie</Button>
       {/* { showGenreForm ? <GenreForm /> : null} */}
-      { showMovieForm ? <MovieForm genres={genres} setGenres={setGenres} selectedGenre={selectedGenre} setSelectedGenre={setSelectedGenre}/> : null }
+      { showMovieForm ? <MovieForm genres={genres} setGenres={setGenres}/> : null }
 
       <h3>All Movies</h3>
       <Movies/>
