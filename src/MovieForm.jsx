@@ -137,7 +137,8 @@ function MovieForm({ onCreateMovie, genres, setGenres, selectedGenre, setSelecte
   }
 
   function handleChange(event){ 
-    setGenres(event.target.value);
+    // setGenres(event.target.value);
+    // this function should be able to grab the genre that is clicked, and have the value of that genre appear as the selected value 
   };
 
 

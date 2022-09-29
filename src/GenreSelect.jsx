@@ -11,6 +11,7 @@ function GenreSelect({ genres, handleChange }) {
     return <MenuItem value={genre.id} key={genre.id}>{genre.name}</MenuItem>
   })
 
+
   return (
     <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
       <InputLabel id="demo-select-small">Genre</InputLabel>
