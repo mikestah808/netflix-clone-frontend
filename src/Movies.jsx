@@ -6,18 +6,15 @@ function Movies() {
   const { user } = useContext(UserContext)
 
 
-  console.log("movies", user.movies)
 
-    const renderMovies = user.movies.map((movie) => {
-    return <Movie key={movie.id} movie={movie}/>
-})
-
+    const renderMovies = user.movies ? user.movies.map((movie) => {
+      return <Movie key={movie.id} movie={movie}/>
+  }) : null
 
 
 
   return (
     <>
-    {/* <p>movies</p> */}
     <div>{renderMovies}</div>
     </>
   )

@@ -44,6 +44,8 @@ function Login() {
     }
 
     return (
+      <>
+      <h1>Login Here!</h1>
       <Box
         onSubmit={handleSubmit}
         component="form"
@@ -53,10 +55,14 @@ function Login() {
         noValidate
         autoComplete="off"
       >
+        <br />
         <TextField type="text" id="email" value={email} onChange={(e) => setEmail(e.target.value)} label="Email" variant="outlined" />
+        <br />
         <TextField type="text" id="email" value={password} onChange={(e) => setPassword(e.target.value)} label="Password" variant="outlined" />
+        <br />
         <Button type='submit' variant="outlined">Login</Button>
       </Box>
+      </>
     );
 
   // return (

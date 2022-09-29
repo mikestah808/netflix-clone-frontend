@@ -1,9 +1,9 @@
 import React from 'react'
 
-function Genre({ name }) {
+function Genre({ genre }) {
   return (
     <div>
-      {/* {name} */}
+      {genre.name}
     </div>
   )
 }

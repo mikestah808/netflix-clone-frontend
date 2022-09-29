@@ -12,6 +12,10 @@ h2{
   display: flexbox;
 } */
 
+h1 {
+  align-items: center;
+}
+
 .container{
   background: white;
   width: 100%;

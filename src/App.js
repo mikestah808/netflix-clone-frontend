@@ -15,8 +15,8 @@ function App(props) {
       <UserProvider>
         <NavBar />
         <Routes>
-          <Route exact path="/login" element={ <Login /> } />
           <Route exact path="/" element={ <HomePage /> } />
+          <Route exact path="/login" element={ <Login /> } />
           <Route exact path="/signup" element={ <Signup /> } />
         </Routes>
       </UserProvider>

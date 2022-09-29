@@ -1,7 +1,7 @@
 import React from 'react'
 
 function Movie({ movie }) {
-  const {title, description, image_url, release_date, like} = movie
+  const {title, description, image_url, release_date} = movie
 
 
   return (
