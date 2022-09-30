@@ -27,8 +27,7 @@ function Genres() {
 
   return (
     <div>
-      <p>list of genres</p>
-      <p>{renderGenres}</p>
+      {renderGenres}
     </div>
   )
 }

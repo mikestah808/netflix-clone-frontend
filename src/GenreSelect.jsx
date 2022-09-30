@@ -11,8 +11,6 @@ function GenreSelect({ genres, handleChange, selectedGenre }) {
     return <MenuItem value={genre.id} key={genre.id}>{genre.name}</MenuItem>
   })
 
-  console.log(selectedGenre.name)
-
 
   return (
     <FormControl sx={{ m: 1, minWidth: 120 }} size="small">

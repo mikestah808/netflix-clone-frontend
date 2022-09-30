@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect } from 'react'
 import { UserContext } from './context/user'
 // import GenreForm from './GenreForm'
-import Movies from './Movies'
+import MovieList from './MovieList'
 import Button from '@mui/material/Button';
 import MovieForm from './MovieForm';
 import Genres from './Genres'
@@ -31,25 +31,22 @@ function HomePage() {
     setShowMovieForm((showMovieForm) => !showMovieForm)
   }
 
-  // function onCreateMovie(newMovie){
-  //   const addNewMovie=[...movies, newMovie]
-  //   setMovies(addNewMovie);
-  // }
+  function onCreateMovie(newMovie){
+    const addNewMovie=[...user.movies, newMovie]
+    console.log(addNewMovie)
+    // setMovies(addNewMovie);
+  }
 
 
 
   if(user){
     return (
       <>
-      <br />
-      <Genres /> 
-      {/* <Button onClick={createGenreForm} variant="outlined">Add Genre</Button> */}
+      <Genres />
+      <br /> 
       <Button onClick={createMovieForm} variant='outlined'>Add Movie</Button>
-      {/* { showGenreForm ? <GenreForm /> : null} */}
       { showMovieForm ? <MovieForm genres={genres} setGenres={setGenres}/> : null }
-
-      <h3>All Movies</h3>
-      <Movies/>
+      <MovieList/>
       </>
     )
   } else {

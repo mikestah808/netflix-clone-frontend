@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react'
+import { UserContext } from './context/user'
 import FormControlUnstyled, {
   useFormControlUnstyledContext,
 } from '@mui/base/FormControlUnstyled';
@@ -112,6 +113,8 @@ const HelperText = styled((props) => {
 `;
 
 function MovieForm({ onCreateMovie, genres }) {
+  const { user } = useContext(UserContext)
+
 
   //movie state
   const [title, setTitle] = useState("")
@@ -153,6 +156,7 @@ function MovieForm({ onCreateMovie, genres }) {
       title: title,
       description: description,
       genre_id : selectedGenre.id,
+      user_id: user.id,
       image_url: image,
       release_date: releaseDate
     };
@@ -167,7 +171,9 @@ function MovieForm({ onCreateMovie, genres }) {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(formData)
-    });
+    })
+    .then(response => response.json())
+    .then(newMovie => onCreateMovie(newMovie));
 
     } else {
       alert("you forgot something!")

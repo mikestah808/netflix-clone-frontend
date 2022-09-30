@@ -12,8 +12,10 @@ h2{
   display: flexbox;
 } */
 
-h1 {
-  align-items: center;
+.btn-group{
+  padding: 10px 24px; /* Some padding */
+  cursor: pointer; /* Pointer/hand icon */
+  float: left; /* Float the buttons side by side */
 }
 
 .container{
@@ -99,3 +101,7 @@ button:active {
   color: #d5f4e6;
 
 }
+
+
+
+

@@ -1,14 +1,14 @@
 import React, { useContext } from 'react'
 import { UserContext } from './context/user'
-import Movie from './Movie'
+import MovieCard from './MovieCard'
 
-function Movies() {
+function MovieList() {
   const { user } = useContext(UserContext)
 
 
 
     const renderMovies = user.movies ? user.movies.map((movie) => {
-      return <Movie key={movie.id} movie={movie}/>
+      return <MovieCard key={movie.id} movie={movie}/>
   }) : null
 
 
@@ -20,4 +20,4 @@ function Movies() {
   )
 }
 
-export default Movies
+export default MovieList
