@@ -37,6 +37,11 @@ function HomePage() {
     // setMovies(addNewMovie);
   }
 
+  // function onDeleteMovie(deletedMovieId){
+  //   const filterMovies = workouts.filter((workout) => workout.id !== deletedWorkoutId)  
+  //   setWorkouts(filterWorkouts)
+  // }
+
 
 
   if(user){
@@ -46,7 +51,7 @@ function HomePage() {
       <br /> 
       <Button onClick={createMovieForm} variant='outlined'>Add Movie</Button>
       { showMovieForm ? <MovieForm genres={genres} setGenres={setGenres}/> : null }
-      <MovieList/>
+      <MovieList genres={genres}/>
       </>
     )
   } else {
