@@ -12,7 +12,6 @@ function HomePage() {
   const [showMovieForm, setShowMovieForm] = useState(false)
   const [genres, setGenres] = useState([]);
 
-  // const [showGenreForm, setShowGenreForm] = useState(false)
 
   useEffect(() => {
     fetch("/genres")
@@ -32,9 +31,8 @@ function HomePage() {
   }
 
   function onCreateMovie(newMovie){
-    const addNewMovie=[...user.movies, newMovie]
+    const addNewMovie = [...user.movies, newMovie]
     console.log(addNewMovie)
-    // setMovies(addNewMovie);
   }
 
   // function onDeleteMovie(deletedMovieId){
@@ -50,7 +48,7 @@ function HomePage() {
       <Genres />
       <br /> 
       <Button onClick={createMovieForm} variant='outlined'>Add Movie</Button>
-      { showMovieForm ? <MovieForm genres={genres} setGenres={setGenres}/> : null }
+      { showMovieForm ? <MovieForm genres={genres} setGenres={setGenres} onCreateMovie={onCreateMovie}/> : null }
       <MovieList genres={genres}/>
       </>
     )
