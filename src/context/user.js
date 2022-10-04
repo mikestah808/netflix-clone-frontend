@@ -16,6 +16,12 @@ function UserProvider({ children }) {
   },[])
 
 
+  // const addMovie = (newMovie) => {
+    //const newMovies = [...user.movies, newMovie]
+      //setUser({...user, movies: newMovies})
+  // }
+
+
   const login = (user) => {
     setUser(user)
   }

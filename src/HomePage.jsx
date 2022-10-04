@@ -1,15 +1,13 @@
 import React, { useContext, useState, useEffect } from 'react'
 import { UserContext } from './context/user'
-// import GenreForm from './GenreForm'
-import MovieList from './MovieList'
-import Button from '@mui/material/Button';
-import MovieForm from './MovieForm';
+import Button from '@mui/material/Button'
+import GenreForm from './GenreForm'
 import Genres from './Genres'
 
 
 function HomePage() {
   const { user } = useContext(UserContext)
-  const [showMovieForm, setShowMovieForm] = useState(false)
+  const [showGenreForm, setShowGenreForm] = useState(false)
   const [genres, setGenres] = useState([]);
 
 
@@ -20,26 +18,15 @@ function HomePage() {
   }, [])
 
 
-  // function createGenreForm(){
-  //   setShowGenreForm((showGenreForm) => !showGenreForm)
-  // }
-
-
-
-  function createMovieForm(){
-    setShowMovieForm((showMovieForm) => !showMovieForm)
+  function createGenreForm(){
+    setShowGenreForm((showGenreForm) => !showGenreForm)
   }
 
-  function onCreateMovie(newMovie){
-    const addNewMovie = [...user.movies, newMovie]
-    console.log(addNewMovie)
-  }
 
-  // function onDeleteMovie(deletedMovieId){
-  //   const filterMovies = workouts.filter((workout) => workout.id !== deletedWorkoutId)  
-  //   setWorkouts(filterWorkouts)
+  // function onCreateMovie(newMovie){
+  //   const addNewMovie = [...user.movies, newMovie]
+  //   console.log(addNewMovie)
   // }
-
 
 
   if(user){
@@ -47,9 +34,9 @@ function HomePage() {
       <>
       <Genres />
       <br /> 
-      <Button onClick={createMovieForm} variant='outlined'>Add Movie</Button>
-      { showMovieForm ? <MovieForm genres={genres} setGenres={setGenres} onCreateMovie={onCreateMovie}/> : null }
-      <MovieList genres={genres}/>
+      <Button onClick={createGenreForm} variant='outlined'>Add Genre</Button>
+      { showGenreForm ? <GenreForm genres={genres} setGenres={setGenres} /> : null }
+      {/* <MovieList genres={genres}/> */}
       </>
     )
   } else {

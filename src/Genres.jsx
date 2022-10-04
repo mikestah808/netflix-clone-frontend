@@ -1,13 +1,12 @@
-// import React, { useContext, useState } from 'react'
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { useEffect } from 'react'
-// import { UserContext } from './context/user'
+import { UserContext } from './context/user'
 import Genre from './Genre'
 
 function Genres() {
-  // state for ALL genres
+  const { user } = useContext(UserContext)
   const [genres, setGenres] = useState([])
-  // const { user } = useContext(UserContext)
+
 
   useEffect(() => {
     fetch("/genres")

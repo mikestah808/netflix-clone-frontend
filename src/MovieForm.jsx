@@ -7,7 +7,7 @@ import InputUnstyled, { inputUnstyledClasses } from '@mui/base/InputUnstyled';
 import { styled } from '@mui/system';
 import clsx from 'clsx';
 import { Button } from '@mui/material';
-import GenreSelect from './GenreSelect';
+// import GenreSelect from './GenreSelect';
 
 const blue = {
   100: '#DAECFF',
@@ -112,7 +112,7 @@ const HelperText = styled((props) => {
   font-size: 0.875rem;
 `;
 
-function MovieForm({ onCreateMovie, genres }) {
+function MovieForm() {
   const { user } = useContext(UserContext)
 
 
@@ -121,7 +121,7 @@ function MovieForm({ onCreateMovie, genres }) {
   const [description, setDescription] = useState("")
   const [image, setImage] = useState("")
   const [releaseDate, setReleaseDate] = useState("")
-  const [selectedGenre, setSelectedGenre] = useState({});
+  // const [selectedGenre, setSelectedGenre] = useState({});
 
 
   function handleTitle(event) {
@@ -140,12 +140,12 @@ function MovieForm({ onCreateMovie, genres }) {
     setReleaseDate(event.target.value)
   }
 
-  function handleChange(event){ 
-    const findGenre = genres.find((genre) => genre.id === event.target.value)
-    setSelectedGenre(findGenre)
-    // setGenres(event.target.value);
-    // this function should be able to grab the genre that is clicked, and have the value of that genre appear as the selected value 
-  };
+  // function handleChange(event){ 
+  //   const findGenre = genres.find((genre) => genre.id === event.target.value)
+  //   setSelectedGenre(findGenre)
+  //   // setGenres(event.target.value);
+  //   // this function should be able to grab the genre that is clicked, and have the value of that genre appear as the selected value 
+  // };
 
 
 
@@ -155,8 +155,6 @@ function MovieForm({ onCreateMovie, genres }) {
     const formData = {
       title: title,
       description: description,
-      genre_id : selectedGenre.id,
-      user_id: user.id,
       image_url: image,
       release_date: releaseDate
     };
@@ -173,7 +171,7 @@ function MovieForm({ onCreateMovie, genres }) {
       body: JSON.stringify(formData)
     })
     .then(response => response.json())
-    .then(newMovie => onCreateMovie(newMovie));
+    .then(newMovie => console.log(newMovie));
 
     } else {
       alert("you forgot something!")
@@ -186,9 +184,6 @@ function MovieForm({ onCreateMovie, genres }) {
     // toggleButton();
   }
 
-//if the formData input values are not all filled out, then throw out error 
-//else, do the POST request 
-
 
   return (
     <form onSubmit={handleMovieSubmit}>
@@ -199,7 +194,7 @@ function MovieForm({ onCreateMovie, genres }) {
       <Input type="text" onChange={handleDescription} value={description}/>
       <HelperText />
       {/* add select dropdown here  */}
-      <GenreSelect genres={genres} handleChange={handleChange} selectedGenre={selectedGenre}/>
+      {/* <GenreSelect handleChange={handleChange} selectedGenre={selectedGenre}/> */}
       <Label>Image:</Label>
       <Input type="text" onChange={handleImage} value={image}/>
       <HelperText />

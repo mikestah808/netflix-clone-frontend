@@ -6,6 +6,7 @@ import NavBar from './Navbar'
 import { UserProvider } from "./context/user"
 import Signup from './authentication/Signup'
 import Login from './authentication/Login'
+import SelectedGenrePage from './SelectedGenrePage'
 
 function App(props) {
 
@@ -18,6 +19,7 @@ function App(props) {
           <Route exact path="/" element={ <HomePage /> } />
           <Route exact path="/login" element={ <Login /> } />
           <Route exact path="/signup" element={ <Signup /> } />
+          <Route path="/genres/:id" element={ <SelectedGenrePage /> } />
         </Routes>
       </UserProvider>
     </div>
