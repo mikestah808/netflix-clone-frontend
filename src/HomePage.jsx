@@ -5,17 +5,17 @@ import GenreForm from './GenreForm'
 import Genres from './Genres'
 
 
-function HomePage() {
+function HomePage({ genres, setGenres }) {
   const { user } = useContext(UserContext)
   const [showGenreForm, setShowGenreForm] = useState(false)
-  const [genres, setGenres] = useState([]);
+  // const [genres, setGenres] = useState([]);
 
 
-  useEffect(() => {
-    fetch("/genres")
-    .then((resp) => resp.json())
-    .then((data) => setGenres(data))
-  }, [])
+  // useEffect(() => {
+  //   fetch("/genres")
+  //   .then((resp) => resp.json())
+  //   .then((data) => setGenres(data))
+  // }, [])
 
 
   function createGenreForm(){
@@ -23,20 +23,13 @@ function HomePage() {
   }
 
 
-  // function onCreateMovie(newMovie){
-  //   const addNewMovie = [...user.movies, newMovie]
-  //   console.log(addNewMovie)
-  // }
-
-
   if(user){
     return (
       <>
-      <Genres />
+      <Genres genres={genres}/>
       <br /> 
       <Button onClick={createGenreForm} variant='outlined'>Add Genre</Button>
       { showGenreForm ? <GenreForm genres={genres} setGenres={setGenres} /> : null }
-      {/* <MovieList genres={genres}/> */}
       </>
     )
   } else {

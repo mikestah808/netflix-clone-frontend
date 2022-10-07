@@ -1,8 +1,12 @@
 import React, { useState, useContext } from 'react'
 import { UserContext } from "../context/user"
+import {useNavigate} from "react-router-dom"
 
 function Signup() {
     const {signup} = useContext(UserContext)
+
+    //navigates to home page after user signs up
+    const navigate = useNavigate();
 
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
@@ -27,6 +31,7 @@ function Signup() {
         .then(user => {
             if (!user.errors) {
                 signup(user)
+                navigate("/")
             } else {
                 setFirstName("")
                 setLastName("")

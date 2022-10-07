@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from 'react'
+import React, { useContext, useState } from 'react'
 import { UserContext } from './context/user'
 import FormControlUnstyled, {
   useFormControlUnstyledContext,
@@ -7,7 +7,8 @@ import InputUnstyled, { inputUnstyledClasses } from '@mui/base/InputUnstyled';
 import { styled } from '@mui/system';
 import clsx from 'clsx';
 import { Button } from '@mui/material';
-// import GenreSelect from './GenreSelect';
+import { useParams } from 'react-router-dom';
+import GenreSelect from './GenreSelect';
 
 const blue = {
   100: '#DAECFF',
@@ -112,8 +113,13 @@ const HelperText = styled((props) => {
   font-size: 0.875rem;
 `;
 
-function MovieForm() {
+function MovieForm({ genres }) {
   const { user } = useContext(UserContext)
+
+
+    // Get the userId param from the URL.
+    // const { id } = useParams();
+
 
 
   //movie state
@@ -121,7 +127,9 @@ function MovieForm() {
   const [description, setDescription] = useState("")
   const [image, setImage] = useState("")
   const [releaseDate, setReleaseDate] = useState("")
-  // const [selectedGenre, setSelectedGenre] = useState({});
+  const [selectedGenre, setSelectedGenre] = useState({});
+
+  console.log("selected genre", selectedGenre.id)
 
 
   function handleTitle(event) {
@@ -140,12 +148,13 @@ function MovieForm() {
     setReleaseDate(event.target.value)
   }
 
-  // function handleChange(event){ 
-  //   const findGenre = genres.find((genre) => genre.id === event.target.value)
-  //   setSelectedGenre(findGenre)
-  //   // setGenres(event.target.value);
-  //   // this function should be able to grab the genre that is clicked, and have the value of that genre appear as the selected value 
-  // };
+
+  function handleChange(event){ 
+    const findGenre = genres.find((genre) => genre.id === event.target.value)
+    setSelectedGenre(findGenre)
+    // setGenres(event.target.value);
+    // this function should be able to grab the genre that is clicked, and have the value of that genre appear as the selected value 
+  };
 
 
 
@@ -154,6 +163,7 @@ function MovieForm() {
 
     const formData = {
       title: title,
+      genre_id: selectedGenre.id,
       description: description,
       image_url: image,
       release_date: releaseDate
@@ -194,7 +204,11 @@ function MovieForm() {
       <Input type="text" onChange={handleDescription} value={description}/>
       <HelperText />
       {/* add select dropdown here  */}
-      {/* <GenreSelect handleChange={handleChange} selectedGenre={selectedGenre}/> */}
+      <GenreSelect
+      genres={genres}
+       handleChange={handleChange} 
+       selectedGenre={selectedGenre}
+       />
       <Label>Image:</Label>
       <Input type="text" onChange={handleImage} value={image}/>
       <HelperText />

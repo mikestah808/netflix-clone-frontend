@@ -121,27 +121,27 @@ const HelperText = styled((props) => {
 
 
 
-function MovieCard({ movie, genres }) {
+function MovieCard({ movie }) {
     const {id, title, description, image_url, release_date} = movie
-    const [selectedGenre, setSelectedGenre] = useState({});
-    const [edit, setEdit] = useState(false)
+    // const [selectedGenre, setSelectedGenre] = useState({});
+    // const [edit, setEdit] = useState(false)
 
 
-    function handleChange(event){ 
-      const findGenre = genres.find((genre) => genre.id === event.target.value)
-      setSelectedGenre(findGenre)
-      // setGenres(event.target.value);
-      // this function should be able to grab the genre that is clicked, and have the value of that genre appear as the selected value 
-    };
+    // function handleChange(event){ 
+    //   const findGenre = genres.find((genre) => genre.id === event.target.value)
+    //   setSelectedGenre(findGenre)
+    //   // setGenres(event.target.value);
+    //   // this function should be able to grab the genre that is clicked, and have the value of that genre appear as the selected value 
+    // };
 
 
-    function handleEditClick(){
-      setEdit((edit) => !edit)
-       // fill in form inputs with key/pair values with object returned from HTTP GET request
-      // fetch(`movies/${id}`)
-      // .then((resp) => resp.json())
-      // .then((selectedMovie) => handleEditButtonClick(selectedMovie));
-    }
+    // function handleEditClick(){
+    //   setEdit((edit) => !edit)
+    //   //  fill in form inputs with key/pair values with object returned from HTTP GET request
+    //   fetch(`movies/${id}`)
+    //   .then((resp) => resp.json())
+    //   .then((selectedMovie) => handleEditButtonClick(selectedMovie));
+    // }
 
 
     function handleEditSubmit(e){
@@ -164,8 +164,13 @@ function MovieCard({ movie, genres }) {
 
   return (
     <Card sx={{ maxWidth: 350 }}>
-        <h3>{title}</h3>
-        <p>Release Date: {release_date}</p>
+        <h3>
+          {title}
+        </h3>
+        <p>
+          Release Date: 
+          {release_date}
+          </p>
       <CardMedia
         component="img"
         height="500"
@@ -174,18 +179,21 @@ function MovieCard({ movie, genres }) {
       />
       <CardContent>
         <Typography variant="body2" color="text.secondary">
-          Description: {description}
+          Description: 
+          {description}
         </Typography>
         <Button
-         onClick={handleEditClick}
+        //  onClick={handleEditClick}
         >
           Edit
           </Button>
-        <Button onClick={handleDeleteClick}>Delete</Button>
+        <Button onClick={handleDeleteClick}>
+          Delete
+          </Button>
       </CardContent>
 
 
-      { edit ? (
+      {/* { edit ? (
        <form>
        <Label>Title:</Label>
        <Input type="text"/>
@@ -193,7 +201,7 @@ function MovieCard({ movie, genres }) {
        <Label>Description:</Label>
        <Input type="text"/>
        <HelperText />
-       <GenreSelect genres={genres} handleChange={handleChange} selectedGenre={selectedGenre}/>
+       <GenreSelect selectedGenre={selectedGenre}/>
        <Label>Image:</Label>
        <Input type="text"/>
        <HelperText />
@@ -203,7 +211,7 @@ function MovieCard({ movie, genres }) {
      <br />
      <Button variant="contained" type="submit" onClick={handleEditSubmit}>Edit Movie</Button>
      </form>
-    ) : null }
+    ) : null } */}
       
 
     </Card>

@@ -5,7 +5,7 @@ const UserContext = React.createContext();
 
 //Create a provider component 
 function UserProvider({ children }) {
-  const [user, setUser] = useState({})
+  const [user, setUser] = useState(null)
 
   useEffect(() => {
     fetch("/me")

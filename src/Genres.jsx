@@ -1,20 +1,7 @@
-import React, { useContext, useState } from 'react'
-import { useEffect } from 'react'
-import { UserContext } from './context/user'
+import React from 'react'
 import Genre from './Genre'
 
-function Genres() {
-  const { user } = useContext(UserContext)
-  const [genres, setGenres] = useState([])
-
-
-  useEffect(() => {
-    fetch("/genres")
-    .then((resp) => resp.json())
-    .then((data) => setGenres(data))
-  }, [])
-
-
+function Genres({ genres }) {
 
 
   const renderGenres = genres.map((genre) => {
