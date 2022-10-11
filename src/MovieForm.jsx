@@ -115,11 +115,7 @@ const HelperText = styled((props) => {
 `;
 
 function MovieForm({ genres }) {
-  const { user, addMovie } = useContext(UserContext)
-
-
-    // Get the userId param from the URL.
-    // const { id } = useParams();
+  const { addMovie } = useContext(UserContext)
 
 
 
@@ -153,8 +149,6 @@ function MovieForm({ genres }) {
   function handleChange(event){ 
     const findGenre = genres.find((genre) => genre.id === event.target.value)
     setSelectedGenre(findGenre)
-    // setGenres(event.target.value);
-    // this function should be able to grab the genre that is clicked, and have the value of that genre appear as the selected value 
   };
 
 
@@ -173,7 +167,6 @@ function MovieForm({ genres }) {
     //send the state value of submittedData as a POST request to the correct path
     
     if(formData.title !== "" && formData.description !== "" && formData.image_url !== "" && formData.release_date !== 0){
-      // debugger;
       fetch('/movies', {
         method: 'POST',
         headers: {
@@ -189,10 +182,9 @@ function MovieForm({ genres }) {
     }
 
     setTitle("");
-    setDescription("");
+    setDescription("")
     setImage("");
-    setReleaseDate("");
-    // toggleButton();
+    setReleaseDate("")
   }
 
 

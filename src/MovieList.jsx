@@ -23,7 +23,7 @@ function MovieList({ genres }) {
   console.log("genres", genres)
 
     const renderMovies = user.movies.map((movie) => {
-      return <MovieCard key={movie.id} movie={movie} />
+      return <MovieCard genres={genres} key={movie.id} movie={movie} />
   })
 
 

@@ -5,6 +5,7 @@ import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import { Button } from '@mui/material';
 import { UserContext } from './context/user'
+import GenreSelect from './GenreSelect';
 
 
 
@@ -122,13 +123,42 @@ const HelperText = styled((props) => {
 
 
 
-function MovieCard({ movie }) {
-  const { user, deleteMovie } = useContext(UserContext)
-    const {id, title, description, image_url, release_date} = movie
+function MovieCard({ movie, genres }) {
+  const { deleteMovie } = useContext(UserContext)
+  const {id, title, description, image_url, release_date} = movie
+  const [edit, setEdit] = useState(false)
+
+  //movie state
+  const [editTitle, setEditTitle] = useState("")
+  const [editDescription, setEditDescription] = useState("")
+  const [editImage, setEditImage] = useState("")
+  const [editReleaseDate, setEditReleaseDate] = useState("")
+  const [selectedGenre, setSelectedGenre] = useState({});
+
+
+  function handleTitle(event) {
+    setEditTitle(event.target.value);
+  }
+
+  function handleDescription(event){
+    setEditDescription(event.target.value);
+  }
+
+  function handleImage(event){
+    setEditImage(event.target.value)
+  }
+
+  function handleReleaseDate(event){
+    setEditReleaseDate(event.target.value)
+  }
+
+
 
     
-    // const [selectedGenre, setSelectedGenre] = useState({});
-    // const [edit, setEdit] = useState(false)
+  function handleChange(event){ 
+    const findGenre = genres.find((genre) => genre.id === event.target.value)
+    setSelectedGenre(findGenre)
+  };
 
 
     // function handleChange(event){ 
@@ -139,18 +169,19 @@ function MovieCard({ movie }) {
     // };
 
 
-    // function handleEditClick(){
-    //   setEdit((edit) => !edit)
-    //   //  fill in form inputs with key/pair values with object returned from HTTP GET request
-    //   fetch(`movies/${id}`)
-    //   .then((resp) => resp.json())
-    //   .then((selectedMovie) => handleEditButtonClick(selectedMovie));
-    // }
+    function handleEditClick(){
+      setEdit((edit) => !edit)
+      //  fill in form inputs with key/pair values with object returned from HTTP GET request
 
-
-    function handleEditSubmit(e){
-      e.preventDefault()
+      // fetch(`movies/${id}`)
+      // .then((resp) => resp.json())
+      // .then((selectedMovie) => console.log(selectedMovie));
     }
+
+
+    // function handleEditSubmit(e){
+    //   e.preventDefault()
+    // }
 
 
 
@@ -186,36 +217,30 @@ function MovieCard({ movie }) {
           Description: 
           {description}
         </Typography>
-        <Button
-        //  onClick={handleEditClick}
-        >
-          Edit
-          </Button>
-        <Button onClick={handleDeleteClick}>
-          Delete
-          </Button>
+        <Button onClick={handleEditClick}>Edit</Button>
+        <Button onClick={handleDeleteClick}>Delete</Button>
       </CardContent>
 
 
-      {/* { edit ? (
+      { edit ? (
        <form>
+       <GenreSelect genres={genres} selectedGenre={selectedGenre}  handleChange={handleChange}/>
        <Label>Title:</Label>
-       <Input type="text"/>
+       <Input type="text" onChange={handleTitle} value={editTitle}/>
        <HelperText />
        <Label>Description:</Label>
-       <Input type="text"/>
+       <Input type="text" onChange={handleDescription} value={editDescription}/>
        <HelperText />
-       <GenreSelect selectedGenre={selectedGenre}/>
        <Label>Image:</Label>
-       <Input type="text"/>
+       <Input type="text" onChange={handleImage} value={editImage}/>
        <HelperText />
        <Label>Release Date:</Label>
-       <Input type="text"/>
+       <Input type="text" onChange={handleReleaseDate} value={editReleaseDate}/>
        <HelperText />
      <br />
-     <Button variant="contained" type="submit" onClick={handleEditSubmit}>Edit Movie</Button>
+     <Button variant="contained" type="submit">Edit Movie</Button>
      </form>
-    ) : null } */}
+    ) : null }
       
 
     </Card>
