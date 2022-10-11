@@ -7,7 +7,6 @@ import InputUnstyled, { inputUnstyledClasses } from '@mui/base/InputUnstyled';
 import { styled } from '@mui/system';
 import clsx from 'clsx';
 import { Button } from '@mui/material';
-import { useParams } from 'react-router-dom';
 import GenreSelect from './GenreSelect';
 import { Link } from 'react-router-dom';
 

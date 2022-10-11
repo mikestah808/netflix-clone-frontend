@@ -124,16 +124,18 @@ const HelperText = styled((props) => {
 
 
 function MovieCard({ movie, genres }) {
-  const { deleteMovie } = useContext(UserContext)
+  const { deleteMovie, updateMovie } = useContext(UserContext)
   const {id, title, description, image_url, release_date} = movie
   const [edit, setEdit] = useState(false)
 
   //movie state
-  const [editTitle, setEditTitle] = useState("")
-  const [editDescription, setEditDescription] = useState("")
-  const [editImage, setEditImage] = useState("")
-  const [editReleaseDate, setEditReleaseDate] = useState("")
+  const [editTitle, setEditTitle] = useState(title)
+  const [editDescription, setEditDescription] = useState(description)
+  const [editImage, setEditImage] = useState(image_url)
+  const [editReleaseDate, setEditReleaseDate] = useState(release_date)
   const [selectedGenre, setSelectedGenre] = useState({});
+
+  console.log("selected genre", selectedGenre.id)
 
 
   function handleTitle(event) {
@@ -161,27 +163,46 @@ function MovieCard({ movie, genres }) {
   };
 
 
-    // function handleChange(event){ 
-    //   const findGenre = genres.find((genre) => genre.id === event.target.value)
-    //   setSelectedGenre(findGenre)
-    //   // setGenres(event.target.value);
-    //   // this function should be able to grab the genre that is clicked, and have the value of that genre appear as the selected value 
-    // };
 
-
-    function handleEditClick(){
+  function handleEditClick(){
       setEdit((edit) => !edit)
       //  fill in form inputs with key/pair values with object returned from HTTP GET request
 
       // fetch(`movies/${id}`)
       // .then((resp) => resp.json())
       // .then((selectedMovie) => console.log(selectedMovie));
-    }
+  }
 
 
-    // function handleEditSubmit(e){
-    //   e.preventDefault()
-    // }
+  function handleEditSubmit(e){
+
+    const formData = {
+      title: editTitle,
+      genre_id: selectedGenre.id,
+      description: editDescription,
+      image_url: editImage,
+      release_date: editReleaseDate
+    };
+
+
+
+    e.preventDefault();
+    fetch(`/movies/${movie.id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((r) => r.json())
+      .then((updatedMovie) => updateMovie(updatedMovie));
+
+      setEditTitle("");
+      setEditDescription("");
+      setEditImage("")
+      setEditReleaseDate(0)
+
+  }
 
 
 
@@ -223,7 +244,7 @@ function MovieCard({ movie, genres }) {
 
 
       { edit ? (
-       <form>
+       <form onSubmit={handleEditSubmit}>
        <GenreSelect genres={genres} selectedGenre={selectedGenre}  handleChange={handleChange}/>
        <Label>Title:</Label>
        <Input type="text" onChange={handleTitle} value={editTitle}/>

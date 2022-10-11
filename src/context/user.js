@@ -26,6 +26,11 @@ function UserProvider({ children }) {
     setUser({...user, movies: filterMovies})
   }
 
+  const updateMovie = (updatedMovie) => {
+    const editMovies = user.movies.map((movie) => movie.id === updatedMovie.id ? updatedMovie : movie)
+    setUser({...user, movies: editMovies})
+   }
+
 
   const login = (user) => {
     setUser(user)
@@ -42,7 +47,7 @@ function UserProvider({ children }) {
 
 
     return (
-      <UserContext.Provider value={{user,login, logout, signup, addMovie, deleteMovie}}>{children}</UserContext.Provider>
+      <UserContext.Provider value={{user,login, logout, signup, addMovie, deleteMovie, updateMovie}}>{children}</UserContext.Provider>
     );
 }
 

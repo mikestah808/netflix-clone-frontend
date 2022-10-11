@@ -16,9 +16,9 @@ function MovieList({ genres }) {
     setShowMovieForm((showMovieForm) => !showMovieForm)
   }
 
-  function createGenreForm(){
-    setShowGenreForm((showGenreForm) => !showGenreForm)
-  }
+  // function createGenreForm(){
+  //   setShowGenreForm((showGenreForm) => !showGenreForm)
+  // }
 
   console.log("genres", genres)
 
