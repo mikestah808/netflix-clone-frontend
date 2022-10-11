@@ -29,6 +29,7 @@ function NavBar() {
               <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                 Movie Watch
               </Typography>
+                <Button color="inherit" to="/genres" component={ Link }>My Genres</Button>
                 <Button color="inherit" to="/movies" component={ Link }>My Movies</Button>
                 <Button color="inherit" to="/" component={ Link }>Home</Button>
                 <Button color="inherit" onClick={handleLogout}>Logout</Button>

@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import { Button } from '@mui/material';
-import GenreSelect from './GenreSelect'
+import { UserContext } from './context/user'
+
 
 
 import FormControlUnstyled, {
@@ -122,7 +123,10 @@ const HelperText = styled((props) => {
 
 
 function MovieCard({ movie }) {
+  const { user, deleteMovie } = useContext(UserContext)
     const {id, title, description, image_url, release_date} = movie
+
+    
     // const [selectedGenre, setSelectedGenre] = useState({});
     // const [edit, setEdit] = useState(false)
 
@@ -158,7 +162,7 @@ function MovieCard({ movie }) {
         }
       })
         .then(() => {
-          console.log(id)
+          deleteMovie(id)
         })
     }
 

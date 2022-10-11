@@ -16,10 +16,15 @@ function UserProvider({ children }) {
   },[])
 
 
-  // const addMovie = (newMovie) => {
-    //const newMovies = [...user.movies, newMovie]
-      //setUser({...user, movies: newMovies})
-  // }
+  const addMovie = (newMovie) => {
+    const newMovies = [...user.movies, newMovie]
+      setUser({...user, movies: newMovies})
+  }
+
+  const deleteMovie = (deletedMovieId) => {
+    const filterMovies = user.movies.filter((movie) => movie.id !== deletedMovieId)
+    setUser({...user, movies: filterMovies})
+  }
 
 
   const login = (user) => {
@@ -37,7 +42,7 @@ function UserProvider({ children }) {
 
 
     return (
-      <UserContext.Provider value={{user,login, logout, signup}}>{children}</UserContext.Provider>
+      <UserContext.Provider value={{user,login, logout, signup, addMovie, deleteMovie}}>{children}</UserContext.Provider>
     );
 }
 

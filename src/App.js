@@ -8,6 +8,7 @@ import Signup from './authentication/Signup'
 import Login from './authentication/Login'
 import SelectedGenrePage from './SelectedGenrePage'
 import MovieList from './MovieList'
+import GenreList from './GenreList'
 
 function App(props) {
   const [genres, setGenres] = useState([]);
@@ -27,6 +28,7 @@ function App(props) {
         <Routes>
           <Route exact path="/" element={ <HomePage genres={genres} setGenres={setGenres}/> } />
           <Route exact path="/login" element={ <Login /> } />
+          <Route exact path="/genres" element={ <GenreList /> } />
           <Route exact path="/signup" element={ <Signup /> } />
           <Route path="/genres/:id" element={ <SelectedGenrePage /> } />
           <Route path="/movies" element={ <MovieList genres={genres}/> } />

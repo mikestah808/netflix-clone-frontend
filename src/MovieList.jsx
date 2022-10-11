@@ -4,6 +4,7 @@ import { UserContext } from './context/user'
 import MovieCard from './MovieCard'
 import MovieForm from './MovieForm'
 import GenreForm from './GenreForm'
+import Genres from './Genres'
 // import GenreSelect from './GenreSelect'
 
 function MovieList({ genres }) {
@@ -19,6 +20,7 @@ function MovieList({ genres }) {
     setShowGenreForm((showGenreForm) => !showGenreForm)
   }
 
+  console.log("genres", genres)
 
     const renderMovies = user.movies.map((movie) => {
       return <MovieCard key={movie.id} movie={movie} />
@@ -30,8 +32,8 @@ function MovieList({ genres }) {
     <>
     {/* <GenreSelect /> */}
     <br/>
+    {/* <Genres genres={genres}/> */}
     <Button onClick={createMovieForm}>Add Movie</Button>
-    <Button onClick={createGenreForm}>Add Genre</Button>
     { showGenreForm ? <GenreForm genres={genres}/> : null }
     { showMovieForm ? <MovieForm genres={genres}/> : null }
     <div>{renderMovies}</div>

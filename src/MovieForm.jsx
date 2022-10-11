@@ -9,6 +9,7 @@ import clsx from 'clsx';
 import { Button } from '@mui/material';
 import { useParams } from 'react-router-dom';
 import GenreSelect from './GenreSelect';
+import { Link } from 'react-router-dom';
 
 const blue = {
   100: '#DAECFF',
@@ -114,7 +115,7 @@ const HelperText = styled((props) => {
 `;
 
 function MovieForm({ genres }) {
-  const { user } = useContext(UserContext)
+  const { user, addMovie } = useContext(UserContext)
 
 
     // Get the userId param from the URL.
@@ -181,7 +182,7 @@ function MovieForm({ genres }) {
       body: JSON.stringify(formData)
     })
     .then(response => response.json())
-    .then(newMovie => console.log(newMovie));
+    .then(newMovie => addMovie(newMovie));
 
     } else {
       alert("you forgot something!")
@@ -197,6 +198,13 @@ function MovieForm({ genres }) {
 
   return (
     <form onSubmit={handleMovieSubmit}>
+       <GenreSelect
+      genres={genres}
+       handleChange={handleChange} 
+       selectedGenre={selectedGenre}
+       />
+       <p>Need another genre? Click below!</p>
+       <Button color="inherit" to="/" component={ Link }>Add Genre</Button>
       <Label>Title:</Label>
       <Input type="text" onChange={handleTitle} value={title}/>
       <HelperText />
@@ -204,11 +212,6 @@ function MovieForm({ genres }) {
       <Input type="text" onChange={handleDescription} value={description}/>
       <HelperText />
       {/* add select dropdown here  */}
-      <GenreSelect
-      genres={genres}
-       handleChange={handleChange} 
-       selectedGenre={selectedGenre}
-       />
       <Label>Image:</Label>
       <Input type="text" onChange={handleImage} value={image}/>
       <HelperText />
