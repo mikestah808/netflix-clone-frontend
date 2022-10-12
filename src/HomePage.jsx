@@ -5,17 +5,11 @@ import GenreForm from './GenreForm'
 import Genres from './Genres'
 
 
-function HomePage({ genres, setGenres }) {
-  const { user } = useContext(UserContext)
+function HomePage() {
+  const { user, genres, addGenre } = useContext(UserContext)
   const [showGenreForm, setShowGenreForm] = useState(false)
-  // const [genres, setGenres] = useState([]);
 
 
-  // useEffect(() => {
-  //   fetch("/genres")
-  //   .then((resp) => resp.json())
-  //   .then((data) => setGenres(data))
-  // }, [])
 
 
   function createGenreForm(){
@@ -27,9 +21,10 @@ function HomePage({ genres, setGenres }) {
     return (
       <>
       <Genres genres={genres}/>
+      <br/>
       <br /> 
       <Button onClick={createGenreForm} variant='outlined'>Add Genre</Button>
-      { showGenreForm ? <GenreForm genres={genres} setGenres={setGenres} /> : null }
+      { showGenreForm ? <GenreForm genres={genres} addGenre={addGenre}/> : null }
       </>
     )
   } else {

@@ -135,7 +135,6 @@ function MovieCard({ movie, genres }) {
   const [editReleaseDate, setEditReleaseDate] = useState(release_date)
   const [selectedGenre, setSelectedGenre] = useState({});
 
-  console.log("selected genre", selectedGenre.id)
 
 
   function handleTitle(event) {

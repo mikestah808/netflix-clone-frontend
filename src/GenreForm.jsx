@@ -110,7 +110,7 @@ const HelperText = styled((props) => {
   font-size: 0.875rem;
 `;
 
-function GenreForm({ onCreateGenre }) {
+function GenreForm({ addGenre }) {
 
     // state for genre name 
     const [name, setName] = useState("")
@@ -139,7 +139,7 @@ function GenreForm({ onCreateGenre }) {
             body: JSON.stringify(formData)
         })
         .then((resp) => resp.json())
-        .then(data => console.log("genre", data))
+        .then(data => addGenre(data))
     }
 
 

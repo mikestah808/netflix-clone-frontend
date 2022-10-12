@@ -5,12 +5,10 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
 function GenreSelect({ genres, handleChange, selectedGenre }) {
-
-    // console.log(genres)
- 
+  
 
   const showGenres = genres.map((genre) => {
-    return <MenuItem value={genre.id} key={genre.id}>{genre.name}</MenuItem>
+    return <MenuItem value={genre.id} key={genre.id}>{genre.name.toLowerCase()}</MenuItem>
   })
 
 

@@ -6,6 +6,7 @@ const UserContext = React.createContext();
 //Create a provider component 
 function UserProvider({ children }) {
   const [user, setUser] = useState(null)
+  const [genres, setGenres] = useState([]);
 
   useEffect(() => {
     fetch("/me")
@@ -14,6 +15,17 @@ function UserProvider({ children }) {
       setUser(data)
     })
   },[])
+
+  useEffect(() => {
+    fetch("/genres")
+    .then((resp) => resp.json())
+    .then((data) => setGenres(data))
+  }, [])
+
+  const addGenre = (newGenre) => {
+     const newGenres = [...genres, newGenre]
+     setGenres(newGenres)
+  }
 
 
   const addMovie = (newMovie) => {
@@ -47,7 +59,7 @@ function UserProvider({ children }) {
 
 
     return (
-      <UserContext.Provider value={{user,login, logout, signup, addMovie, deleteMovie, updateMovie}}>{children}</UserContext.Provider>
+      <UserContext.Provider value={{user, genres, login, logout, signup, addMovie, deleteMovie, updateMovie, addGenre}}>{children}</UserContext.Provider>
     );
 }
 

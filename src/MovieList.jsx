@@ -7,8 +7,8 @@ import GenreForm from './GenreForm'
 import Genres from './Genres'
 // import GenreSelect from './GenreSelect'
 
-function MovieList({ genres }) {
-  const { user } = useContext(UserContext)
+function MovieList() {
+  const { user, genres } = useContext(UserContext)
   const [showMovieForm, setShowMovieForm] = useState(false)
   const [showGenreForm, setShowGenreForm] = useState(false)
 
@@ -20,7 +20,7 @@ function MovieList({ genres }) {
   //   setShowGenreForm((showGenreForm) => !showGenreForm)
   // }
 
-  console.log("genres", genres)
+  // console.log("genres", genres)
 
     const renderMovies = user.movies.map((movie) => {
       return <MovieCard genres={genres} key={movie.id} movie={movie} />
@@ -30,11 +30,7 @@ function MovieList({ genres }) {
 
   return (
     <>
-    {/* <GenreSelect /> */}
-    <br/>
-    {/* <Genres genres={genres}/> */}
     <Button onClick={createMovieForm}>Add Movie</Button>
-    { showGenreForm ? <GenreForm genres={genres}/> : null }
     { showMovieForm ? <MovieForm genres={genres}/> : null }
     <div>{renderMovies}</div>
     </>

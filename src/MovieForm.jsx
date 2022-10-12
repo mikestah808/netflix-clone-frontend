@@ -8,7 +8,7 @@ import { styled } from '@mui/system';
 import clsx from 'clsx';
 import { Button } from '@mui/material';
 import GenreSelect from './GenreSelect';
-import { Link } from 'react-router-dom';
+import GenreForm from './GenreForm';
 
 const blue = {
   100: '#DAECFF',
@@ -116,6 +116,7 @@ const HelperText = styled((props) => {
 function MovieForm({ genres }) {
   const { addMovie } = useContext(UserContext)
 
+  console.log("genres", genres)
 
 
   //movie state
@@ -124,6 +125,14 @@ function MovieForm({ genres }) {
   const [image, setImage] = useState("")
   const [releaseDate, setReleaseDate] = useState("")
   const [selectedGenre, setSelectedGenre] = useState({});
+  const [showGenreForm, setShowGenreForm] = useState(false)
+
+
+
+
+  function createGenreForm(){
+    setShowGenreForm((showGenreForm) => !showGenreForm)
+  }
 
   console.log("selected genre", selectedGenre.id)
 
@@ -188,14 +197,16 @@ function MovieForm({ genres }) {
 
 
   return (
+    <>
+    <p>Need another genre? Click below!</p>
+       <Button onClick={createGenreForm}>Add Genre</Button>
+       { showGenreForm ? <GenreForm /> : null }
     <form onSubmit={handleMovieSubmit}>
        <GenreSelect
-      genres={genres}
-       handleChange={handleChange} 
-       selectedGenre={selectedGenre}
+          genres={genres}
+          handleChange={handleChange} 
+          selectedGenre={selectedGenre}
        />
-       <p>Need another genre? Click below!</p>
-       <Button color="inherit" to="/" component={ Link }>Add Genre</Button>
       <Label>Title:</Label>
       <Input type="text" onChange={handleTitle} value={title}/>
       <HelperText />
@@ -212,6 +223,7 @@ function MovieForm({ genres }) {
     <br />
     <Button variant="contained" type="submit">Submit</Button>
     </form>
+    </>
   );
 }
 
