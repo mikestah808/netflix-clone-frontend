@@ -1,5 +1,4 @@
 import React, { useState, useContext } from 'react'
-import { useNavigate } from "react-router-dom";
 import { UserContext } from "../context/user"
 import { Button } from '@mui/material'
 import Box from '@mui/material/Box';
@@ -8,7 +7,6 @@ import TextField from '@mui/material/TextField';
 
 
 function Login() {
-    const navigate = useNavigate();
     const {login} = useContext(UserContext)
 
     const [email, setEmail] = useState("")

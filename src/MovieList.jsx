@@ -15,9 +15,9 @@ function MovieList() {
   }
 
 
-    const renderMovies = user.movies.map((movie) => {
+    const renderMovies = user.movies ? user.movies.map((movie) => {
       return <MovieCard genres={genres} key={movie.id} movie={movie} />
-  })
+  }) : null
 
 
   

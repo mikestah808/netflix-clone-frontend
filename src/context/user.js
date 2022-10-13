@@ -14,6 +14,7 @@ function UserProvider({ children }) {
     genres: [],
     movies: []
   })
+  
   const [genres, setGenres] = useState([]);
 
 
@@ -22,6 +23,7 @@ function UserProvider({ children }) {
     .then((resp) => resp.json())
     .then((data) => {
       setUser(data)
+      console.log(data)
     })
   },[])
 
@@ -59,7 +61,7 @@ function UserProvider({ children }) {
   }
 
   const logout = () => {
-    setUser({})
+    setUser(null)
     navigate("/login");
   }
 
