@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import FormControlUnstyled, {
   useFormControlUnstyledContext,
 } from '@mui/base/FormControlUnstyled';
@@ -6,6 +6,8 @@ import InputUnstyled, { inputUnstyledClasses } from '@mui/base/InputUnstyled';
 import { styled } from '@mui/system';
 import clsx from 'clsx';
 import { Button } from '@mui/material';
+import Genres from './Genres';
+import { UserContext } from './context/user';
 
 const blue = {
   100: '#DAECFF',
@@ -110,7 +112,8 @@ const HelperText = styled((props) => {
   font-size: 0.875rem;
 `;
 
-function GenreForm({ addGenre }) {
+function GenreForm() {
+  const { addGenre } = useContext(UserContext)
 
     // state for genre name 
     const [name, setName] = useState("")
@@ -140,6 +143,7 @@ function GenreForm({ addGenre }) {
         })
         .then((resp) => resp.json())
         .then(data => addGenre(data))
+        setName("")
     }
 
 

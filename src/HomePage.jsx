@@ -20,11 +20,10 @@ function HomePage() {
   if(user){
     return (
       <>
-      <Genres genres={genres}/>
-      <br/>
-      <br /> 
+      <br />
       <Button onClick={createGenreForm} variant='outlined'>Add Genre</Button>
       { showGenreForm ? <GenreForm genres={genres} addGenre={addGenre}/> : null }
+      <Genres genres={genres}/>
       </>
     )
   } else {

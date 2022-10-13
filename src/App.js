@@ -14,11 +14,6 @@ function App(props) {
   const [genres, setGenres] = useState([]);
 
 
-  // useEffect(() => {
-  //   fetch("/genres")
-  //   .then((resp) => resp.json())
-  //   .then((data) => setGenres(data))
-  // }, [])
 
 
   return (
@@ -30,7 +25,7 @@ function App(props) {
           <Route exact path="/login" element={ <Login /> } />
           <Route exact path="/genres" element={ <GenreList /> } />
           <Route exact path="/signup" element={ <Signup /> } />
-          <Route path="/movies" element={ <MovieList genres={genres}/> } />
+          <Route exact path="/movies" element={ <MovieList genres={genres}/> } />
         </Routes>
       </UserProvider>
     </div>

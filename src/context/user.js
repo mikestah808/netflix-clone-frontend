@@ -5,7 +5,10 @@ const UserContext = React.createContext();
 
 //Create a provider component 
 function UserProvider({ children }) {
-  const [user, setUser] = useState(null)
+  const [user, setUser] = useState({
+    genres: [],
+    movies: []
+  })
   const [genres, setGenres] = useState([]);
 
   useEffect(() => {
