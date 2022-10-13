@@ -4,11 +4,12 @@ import { UserContext } from './context/user'
 function GenreList() {
     const { user } = useContext(UserContext)
 
-    const genreList = [...new Set(user.genres)].map((genre) => <li key={genre.id}>{genre.name}</li>)
+    let uniqueObjArray = [...new Map(user.genres.map((genre) => [genre["id"], genre])).values()];
 
-    const uniqueGenres = [...new Set(user.genres)]
+    console.log("unique objects", uniqueObjArray)
 
-    console.log("unique genres", uniqueGenres)
+    const genreList = uniqueObjArray.map((genre) => <li key={genre.id}>{genre.name}</li>)
+
 
 
 

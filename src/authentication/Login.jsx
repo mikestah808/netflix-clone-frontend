@@ -32,7 +32,6 @@ function Login() {
           if (!user.error) {
             login(user)
             console.log("you have successfuly logged in")
-            navigate("/");
           } else {
             setEmail("")
             setPassword("")
@@ -65,32 +64,7 @@ function Login() {
       </>
     );
 
-  // return (
-  //   <div>
-  //       <form onSubmit={handleSubmit}>
-  //           <label>Email: </label>
-  //           <TextField id="outlined-basic" label="Email" variant="outlined" />
-  //           <input 
-  //               type="text"
-  //               id="email"
-  //               value={email}
-  //               onChange={(e) => setEmail(e.target.value)}
-  //           /> <br />
-  //           <label>Password: </label>
-  //           <input 
-  //               type="text"
-  //               id="password"
-  //               value={password}
-  //               onChange={(e)=> setPassword(e.target.value)}
-  //           />
-  //           <br />
-  //           <Button color="inherit" type='submit'>Login</Button>
-  //       </form>
-  //       <ul>
-  //           {errors}
-  //       </ul>
-  //   </div>
-  // )
+
 }
 
 

@@ -10,6 +10,8 @@ import Button from '@mui/material/Button';
 function NavBar() {
   const {user, logout} = useContext(UserContext)
 
+  console.log("user", user)
+
 
   function handleLogout() {
     fetch("/logout", {
@@ -44,14 +46,13 @@ function NavBar() {
               <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                 Movie Watch
               </Typography>
-                <Button color="inherit" to="/" component={ Link }>Home</Button>
                 <Button color="inherit" to="/signup" component={ Link }>Sign Up</Button>
                 <Button color="inherit" to="/login" component={ Link }>Login</Button>
             </Toolbar>
           </AppBar>
         </Box>
       );
-    } 
+    }
   }
 
 

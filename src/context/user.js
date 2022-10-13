@@ -1,15 +1,21 @@
 import React, { useState, useEffect } from 'react'
+import { useNavigate } from "react-router-dom";
+
 
 //Create context 
 const UserContext = React.createContext();
 
 //Create a provider component 
 function UserProvider({ children }) {
+  let navigate = useNavigate();
+
+
   const [user, setUser] = useState({
     genres: [],
     movies: []
   })
   const [genres, setGenres] = useState([]);
+
 
   useEffect(() => {
     fetch("/me")
@@ -49,10 +55,12 @@ function UserProvider({ children }) {
 
   const login = (user) => {
     setUser(user)
+    navigate("/")
   }
 
   const logout = () => {
-    setUser(null)
+    setUser({})
+    navigate("/login");
   }
 
 
