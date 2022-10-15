@@ -10,7 +10,8 @@ import Button from '@mui/material/Button';
 function NavBar() {
   const {user, logout} = useContext(UserContext)
 
-  console.log("user", user)
+  // console.log("user", user.id)
+ 
 
 
   function handleLogout() {
@@ -21,7 +22,11 @@ function NavBar() {
       logout()
     })
   }
-    if(user){
+    // if the user contains an id, then it will render this... else... then it will return the latter 
+    // why doesn't this work? once the handleLogout function runs, it deletes the user id from the session hash 
+    // the next step is that the logout function is invoked, which sets users state to NULL
+    // after this, it will navigate to the login page --->  navigate("/login")
+    if(user.id){
       return (
         <Box sx={{ flexGrow: 1 }}>
           <AppBar position="static">

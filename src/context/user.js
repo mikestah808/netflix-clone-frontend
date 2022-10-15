@@ -9,13 +9,17 @@ const UserContext = React.createContext();
 function UserProvider({ children }) {
   let navigate = useNavigate();
 
-
-  const [user, setUser] = useState({
+  const initialUser ={
     genres: [],
     movies: []
-  })
-  
+  }
+
+  const [user, setUser] = useState(initialUser)  
   const [genres, setGenres] = useState([]);
+
+  // on initial application load, the application loads directly to the HomePage component
+  // what i want instead is the application to load to the Login Page j
+
 
 
   useEffect(() => {
@@ -23,7 +27,6 @@ function UserProvider({ children }) {
     .then((resp) => resp.json())
     .then((data) => {
       setUser(data)
-      console.log(data)
     })
   },[])
 
@@ -32,6 +35,8 @@ function UserProvider({ children }) {
     .then((resp) => resp.json())
     .then((data) => setGenres(data))
   }, [])
+
+  console.log("genres", genres)
 
   const addGenre = (newGenre) => {
      const newGenres = [...genres, newGenre]
@@ -61,7 +66,8 @@ function UserProvider({ children }) {
   }
 
   const logout = () => {
-    setUser(null)
+    //originally, i set the users state to NULL, but by setting the users state back to an initialUser, which contains a key of genres and movies, it seems to have navigated to the path of "/login" AND IT PERSISTS
+    setUser(initialUser)
     navigate("/login");
   }
 
