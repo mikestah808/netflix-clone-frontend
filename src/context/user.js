@@ -18,16 +18,20 @@ function UserProvider({ children }) {
   const [genres, setGenres] = useState([]);
 
   // on initial application load, the application loads directly to the HomePage component
-  // what i want instead is the application to load to the Login Page j
+  // what i want instead is the application to load to the Login Page first 
 
 
 
   useEffect(() => {
-    fetch("/me")
-    .then((resp) => resp.json())
-    .then((data) => {
+    if(!user){
+      navigate("/login")
+    } else {
+      fetch("/me")
+        .then((resp) => resp.json())
+        .then((data) => {
       setUser(data)
     })
+    }
   },[])
 
   useEffect(() => {
@@ -74,6 +78,7 @@ function UserProvider({ children }) {
 
   const signup = (user) => {
     setUser(user)
+    navigate("/")
   }
 
 
