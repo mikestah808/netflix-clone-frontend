@@ -13,8 +13,7 @@ function Login() {
 
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
-    const [errors, setErrors] = useState("")
-
+    const [error, setError] = useState("")
 
 
     const handleSubmit = (e) => {
@@ -36,8 +35,7 @@ function Login() {
             setEmail("")
             setPassword("")
             console.log("invalid email or password")
-            // const errorsLis = user.error.login.map(e => <li>{e}</li>)
-            // setErrors(errorsLis)
+            setError("Invalid Email or Password")
           }
         })
     }
@@ -61,6 +59,9 @@ function Login() {
         <br />
         <Button type='submit' variant="outlined">Login</Button>
       </Box>
+      <h4>
+        {error}
+      </h4>
       </>
     );
 
