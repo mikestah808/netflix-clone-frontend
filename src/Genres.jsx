@@ -3,8 +3,6 @@ import Genre from './Genre'
 
 function Genres({ genres }) {
 
-  console.log(genres)
-
 
   // const renderGenres = genres.map((genre) => {
   //   return <Genre key={genre.id} genre={genre} />

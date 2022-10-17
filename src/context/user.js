@@ -21,7 +21,6 @@ function UserProvider({ children }) {
   // what i want instead is the application to load to the Login Page first 
 
 
-
   useEffect(() => {
     if(!user){
       navigate("/login")
@@ -34,13 +33,13 @@ function UserProvider({ children }) {
     }
   },[])
 
+
   useEffect(() => {
     fetch("/genres")
     .then((resp) => resp.json())
     .then((data) => setGenres(data))
   }, [])
 
-  console.log("genres", genres)
 
   const addGenre = (newGenre) => {
      const newGenres = [...genres, newGenre]
@@ -66,19 +65,19 @@ function UserProvider({ children }) {
 
   const login = (user) => {
     setUser(user)
-    navigate("/")
+    navigate("/home")
   }
 
   const logout = () => {
     //originally, i set the users state to NULL, but by setting the users state back to an initialUser, which contains a key of genres and movies, it seems to have navigated to the path of "/login" AND IT PERSISTS
     setUser(initialUser)
-    navigate("/login");
+    navigate("/");
   }
 
 
   const signup = (user) => {
     setUser(user)
-    navigate("/")
+    navigate("/home")
   }
 
 
