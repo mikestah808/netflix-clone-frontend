@@ -14,7 +14,7 @@ function GenreList() {
 
 
   return (
-    <div>{genreList}</div>
+    <h2>{genreList}</h2>
   )
 }
 

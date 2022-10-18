@@ -8,7 +8,6 @@ import MovieForm from './MovieForm'
 function MovieList() {
   const { user, genres } = useContext(UserContext)
   const [showMovieForm, setShowMovieForm] = useState(false)
-  // const [showGenreForm, setShowGenreForm] = useState(false)
 
   function createMovieForm(){
     setShowMovieForm((showMovieForm) => !showMovieForm)

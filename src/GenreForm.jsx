@@ -6,7 +6,6 @@ import InputUnstyled, { inputUnstyledClasses } from '@mui/base/InputUnstyled';
 import { styled } from '@mui/system';
 import clsx from 'clsx';
 import { Button } from '@mui/material';
-import Genres from './Genres';
 import { UserContext } from './context/user';
 
 const blue = {

@@ -37,7 +37,7 @@ function NavBar() {
               </Typography>
                 <Button color="inherit" to="/genres" component={ Link }>My Genres</Button>
                 <Button color="inherit" to="/movies" component={ Link }>My Movies</Button>
-                <Button color="inherit" to="/home" component={ Link }>Home</Button>
+                <Button color="inherit" to="/" component={ Link }>Home</Button>
                 <Button color="inherit" onClick={handleLogout}>Logout</Button>
             </Toolbar>
           </AppBar>
@@ -52,7 +52,6 @@ function NavBar() {
                 Movie Watch
               </Typography>
                 <Button color="inherit" to="/signup" component={ Link }>Sign Up</Button>
-                {/* <Button color="inherit" to="/login" component={ Link }>Login</Button> */}
             </Toolbar>
           </AppBar>
         </Box>

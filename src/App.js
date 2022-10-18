@@ -17,9 +17,8 @@ function App() {
       <UserProvider>
         <NavBar />
         <Routes>
-        <Route index element={<Login />}/>
-          {/* <Route exact path="/login" element={ <Login /> } /> */}
-          <Route exact path="/home" element={ <HomePage /> } />
+          {/* <Route index element={<Login />}/> */}
+          <Route exact path="/" element={ <HomePage /> } />
           <Route exact path="/genres" element={ <GenreList /> } />
           <Route exact path="/signup" element={ <Signup /> } />
           <Route exact path="/movies" element={ <MovieList /> } />

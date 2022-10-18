@@ -1,8 +1,9 @@
-import React, { useContext, useState, useEffect } from 'react'
+import React, { useContext, useState } from 'react'
 import { UserContext } from './context/user'
 import Button from '@mui/material/Button'
 import GenreForm from './GenreForm'
 import Genres from './Genres'
+import Login from './authentication/Login'
 
 
 function HomePage() {
@@ -17,7 +18,7 @@ function HomePage() {
   }
 
 
-  if(user){
+  if(user.first_name){
     return (
       <>
       <br />
@@ -30,6 +31,7 @@ function HomePage() {
     return (
       <>
       <h3>Welcome to Movie Watch!</h3>
+      <Login /> 
       </>
     )
   }

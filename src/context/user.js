@@ -65,7 +65,7 @@ function UserProvider({ children }) {
 
   const login = (user) => {
     setUser(user)
-    navigate("/home")
+    navigate("/")
   }
 
   const logout = () => {

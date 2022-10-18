@@ -8,7 +8,6 @@ import TextField from '@mui/material/TextField';
 
 
 function Login() {
-    // const navigate = useNavigate();
     const {login} = useContext(UserContext)
 
     const [email, setEmail] = useState("")
@@ -55,7 +54,7 @@ function Login() {
         <br />
         <TextField type="text" id="email" value={email} onChange={(e) => setEmail(e.target.value)} label="Email" variant="outlined" />
         <br />
-        <TextField type="text" id="email" value={password} onChange={(e) => setPassword(e.target.value)} label="Password" variant="outlined" />
+        <TextField type="password" id="email" value={password} onChange={(e) => setPassword(e.target.value)} label="Password" variant="outlined" />
         <br />
         <Button type='submit' variant="outlined">Login</Button>
       </Box>
