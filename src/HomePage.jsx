@@ -30,7 +30,7 @@ function HomePage() {
   } else {
     return (
       <>
-      <h3>Welcome to Movie Watch!</h3>
+      <h3>Welcome to Movie Keeper!</h3>
       <Login /> 
       </>
     )

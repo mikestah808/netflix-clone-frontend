@@ -33,7 +33,7 @@ function NavBar() {
             <Toolbar>
               <h3>Welcome, {user.first_name}!</h3>
               <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                Movie Watch
+                Movie Keeper
               </Typography>
                 <Button color="inherit" to="/genres" component={ Link }>My Genres</Button>
                 <Button color="inherit" to="/movies" component={ Link }>My Movies</Button>
@@ -49,7 +49,7 @@ function NavBar() {
           <AppBar position="static">
             <Toolbar>
               <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                Movie Watch
+                Movie Keeper
               </Typography>
                 <Button color="inherit" to="/signup" component={ Link }>Sign Up</Button>
             </Toolbar>
