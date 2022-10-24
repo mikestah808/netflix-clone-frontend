@@ -14,7 +14,7 @@ This is a frontend application for a movie keeper app
 * Fork and clone 
 * Run npm install 
 * Run npm start 
-* Follow for directions for backend [url here]  
+* Follow for directions for backend [https://github.com/mikestah808/netflix-clone-backend.git]  
 
 ## Features 
 
