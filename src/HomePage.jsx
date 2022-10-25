@@ -11,8 +11,6 @@ function HomePage() {
   const [showGenreForm, setShowGenreForm] = useState(false)
 
 
-
-
   function createGenreForm(){
     setShowGenreForm((showGenreForm) => !showGenreForm)
   }

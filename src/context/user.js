@@ -77,7 +77,7 @@ function UserProvider({ children }) {
 
   const signup = (user) => {
     setUser(user)
-    navigate("/home")
+    navigate("/")
   }
 
 

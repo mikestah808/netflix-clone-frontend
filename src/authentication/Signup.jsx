@@ -59,9 +59,9 @@ function Signup() {
         <br />
         <TextField type="text" id="last_name" value={lastName} onChange={(e) => setLastName(e.target.value)} label="Last Name" variant="outlined" />
         <br />
-        <TextField type="text" id="email" value={email} onChange={(e) => setEmail(e.target.value)} label="Email" variant="outlined" />
+        <TextField type="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} label="Email" variant="outlined" />
         <br />
-        <TextField type="text" id="password" value={password} onChange={(e) => setPassword(e.target.value)} label="Password" variant="outlined" />
+        <TextField type="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} label="Password" variant="outlined" />
         <br />
         <Button type='submit' variant="outlined">Sign Up</Button>
       </Box>
