@@ -29,6 +29,10 @@ This is a frontend application for a movie keeper app
 * Movie edit
 * Movie delete 
 
+## Video Demo Link
+
+https://youtu.be/MalTtjLdAaM
+
 ## Licensing (MIT)
 
 Copyright (c) 2022
