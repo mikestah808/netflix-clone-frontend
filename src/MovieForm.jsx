@@ -116,9 +116,6 @@ const HelperText = styled((props) => {
 function MovieForm({ genres }) {
   const { addMovie } = useContext(UserContext)
 
-  console.log("genres", genres)
-
-
   //movie state
   const [title, setTitle] = useState("")
   const [description, setDescription] = useState("")
@@ -133,8 +130,6 @@ function MovieForm({ genres }) {
   function createGenreForm(){
     setShowGenreForm((showGenreForm) => !showGenreForm)
   }
-
-  console.log("selected genre", selectedGenre.id)
 
 
   function handleTitle(event) {
@@ -160,7 +155,6 @@ function MovieForm({ genres }) {
   };
 
 
-
   function handleMovieSubmit(e){
     e.preventDefault();
 
@@ -171,8 +165,6 @@ function MovieForm({ genres }) {
       image_url: image,
       release_date: releaseDate
     };
-    //what do we do once this data is submitted? 
-    //send the state value of submittedData as a POST request to the correct path
     
     if(formData.title !== "" && formData.description !== "" && formData.image_url !== "" && formData.release_date !== 0){
       fetch('/movies', {
@@ -213,7 +205,6 @@ function MovieForm({ genres }) {
       <Label>Description:</Label>
       <Input type="text" onChange={handleDescription} value={description}/>
       <HelperText />
-      {/* add select dropdown here  */}
       <Label>Image:</Label>
       <Input type="text" onChange={handleImage} value={image}/>
       <HelperText />

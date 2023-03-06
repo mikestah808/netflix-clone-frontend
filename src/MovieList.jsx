@@ -18,7 +18,6 @@ function MovieList() {
       return <MovieCard genres={genres} key={movie.id} movie={movie} />
   })
 
-
   
   return (
     <>

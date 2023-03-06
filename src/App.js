@@ -5,7 +5,6 @@ import HomePage from './HomePage'
 import NavBar from './Navbar'
 import { UserProvider } from "./context/user"
 import Signup from './authentication/Signup'
-import Login from './authentication/Login'
 import MovieList from './MovieList'
 import GenreList from './GenreList'
 
@@ -17,7 +16,6 @@ function App() {
       <UserProvider>
         <NavBar />
         <Routes>
-          {/* <Route index element={<Login />}/> */}
           <Route exact path="/" element={ <HomePage /> } />
           <Route exact path="/genres" element={ <GenreList /> } />
           <Route exact path="/signup" element={ <Signup /> } />

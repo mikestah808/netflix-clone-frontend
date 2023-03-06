@@ -113,9 +113,7 @@ const HelperText = styled((props) => {
 
 function GenreForm() {
   const { addGenre } = useContext(UserContext)
-
-    // state for genre name 
-    const [name, setName] = useState("")
+  const [name, setName] = useState("")
 
 
 

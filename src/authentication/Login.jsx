@@ -29,11 +29,9 @@ function Login() {
         .then(user => {
           if (!user.error) {
             login(user)
-            console.log("you have successfuly logged in")
           } else {
             setEmail("")
             setPassword("")
-            console.log("invalid email or password")
             setError("Invalid Email or Password")
           }
         })

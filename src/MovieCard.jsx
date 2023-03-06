@@ -128,6 +128,7 @@ function MovieCard({ movie, genres }) {
   const {id, title, description, image_url, release_date} = movie
   const [edit, setEdit] = useState(false)
 
+
   //movie state
   const [editTitle, setEditTitle] = useState(title)
   const [editDescription, setEditDescription] = useState(description)
@@ -165,11 +166,6 @@ function MovieCard({ movie, genres }) {
 
   function handleEditClick(){
       setEdit((edit) => !edit)
-      //  fill in form inputs with key/pair values with object returned from HTTP GET request
-
-      // fetch(`movies/${id}`)
-      // .then((resp) => resp.json())
-      // .then((selectedMovie) => console.log(selectedMovie));
   }
 
 
@@ -216,6 +212,7 @@ function MovieCard({ movie, genres }) {
           deleteMovie(id)
         })
     }
+
 
   return (
     <Card sx={{ maxWidth: 350 }}>

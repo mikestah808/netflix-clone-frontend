@@ -17,8 +17,6 @@ function UserProvider({ children }) {
   const [user, setUser] = useState(initialUser)  
   const [genres, setGenres] = useState([]);
 
-  // on initial application load, the application loads directly to the HomePage component
-  // what i want instead is the application to load to the Login Page first 
 
 
   useEffect(() => {
@@ -69,7 +67,6 @@ function UserProvider({ children }) {
   }
 
   const logout = () => {
-    //originally, i set the users state to NULL, but by setting the users state back to an initialUser, which contains a key of genres and movies, it seems to have navigated to the path of "/login" AND IT PERSISTS
     setUser(initialUser)
     navigate("/");
   }

@@ -5,12 +5,11 @@ import GenreForm from './GenreForm'
 import Genres from './Genres'
 import Login from './authentication/Login'
 
-
 function HomePage() {
   const { user, genres, addGenre } = useContext(UserContext)
-  const [showGenreForm, setShowGenreForm] = useState(false)
-
-
+  const [showGenreForm, setShowGenreForm] = useState(false)  
+ 
+  
   function createGenreForm(){
     setShowGenreForm((showGenreForm) => !showGenreForm)
   }
@@ -23,6 +22,7 @@ function HomePage() {
       <Button onClick={createGenreForm} variant='outlined'>Add Genre</Button>
       { showGenreForm ? <GenreForm genres={genres} addGenre={addGenre}/> : null }
       <Genres genres={genres}/>
+      <br />
       </>
     )
   } else {
