@@ -1,10 +1,14 @@
-.App {
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* .App {
   text-align: center;
 }
 
 h2{
   text-align: center;
-}
+} */
 
 /* p {
   color: red;
@@ -12,22 +16,22 @@ h2{
   display: flexbox;
 } */
 
-.btn-group{
-  padding: 10px 24px; /* Some padding */
-  cursor: pointer; /* Pointer/hand icon */
-  float: left; /* Float the buttons side by side */
-}
+/* .btn-group{
+  padding: 10px 24px;
+  cursor: pointer;
+  float: left; 
+} */
 
-.container{
+/* .container{
   background: white;
   width: 100%;
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-}
+} */
 
-.app-wrapper{
+/* .app-wrapper{
   background-color: silver;
   min-width: 200px;
   min-height: 500px;
@@ -100,7 +104,7 @@ button:active {
   min-width: 370px;
   color: #d5f4e6;
 
-}
+} */
 
 
 
