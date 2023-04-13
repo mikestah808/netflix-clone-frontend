@@ -38,29 +38,30 @@ function NavBar() {
         md:py-0
         px-4
         text-lg text-gray-700
-        bg-white
+        bg-black
       "
       >
+        <h4 className='text-red-600 font-bold'>Welcome, {user.first_name.charAt(0).toUpperCase() + user.first_name.slice(1)}!</h4>
         <div className="flex md:flex md:flex-grow flex-row justify-end space-x-1" id="menu">
           <ul
             className="
-              text-base text-gray-700
+              text-base text-stone-700
               pt-4
               md:flex
               md:justify-between
               md:pt-0"
           >
             <li>
-              <Link className="md:p-4 py-2 block hover:text-purple-400" to="/">Home</Link>
+              <Link className="md:p-4 py-2 block text-red-600 hover:text-white" to="/">Home</Link>
             </li>
             <li>
-              <Link className="md:p-4 py-2 block hover:text-purple-400" to="/genres">My Genres</Link>
+              <Link className="md:p-4 py-2 block text-red-600 hover:text-white" to="/genres">My Genres</Link>
             </li>
             <li>
-              <Link className="md:p-4 py-2 block hover:text-purple-400" to="/movies">My Movies</Link>
+              <Link className="md:p-4 py-2 block text-red-600 hover:text-white" to="/movies">My Movies</Link>
             </li>
             <li>
-              <button className="md:p-4 py-2 block hover:text-purple-400 text-purple-500" onClick={handleLogout}>Logout</button>
+              <button className="md:p-4 py-2 block text-red-600 hover:text-white" onClick={handleLogout}>Logout</button>
             </li>
           </ul>
         </div>
@@ -90,20 +91,24 @@ function NavBar() {
           md:py-0
           px-4
           text-lg text-gray-700
-          bg-white
+          bg-black
         "
       >
-        <div className="hidden w-full md:flex md:items-center md:w-auto " id="menu">
+        <div className="flex md:flex md:flex-grow flex-row justify-end space-x-1" id="menu">
           <ul
             className="
-              text-base text-gray-700
+              text-base text-stone-700
               pt-4
               md:flex
               md:justify-between
               md:pt-0"
           >
             <li>
-              <button className="md:p-4 py-2 block hover:text-purple-400 text-purple-500" to="/signup" component={ Link }>Sign Up</button>
+              {/* <button className="md:p-4 py-2 block text-red-600 hover:text-white" to="/signup" component={ Link }>Sign Up</button> */}
+              <Link className="md:p-4 py-2 block text-red-600 hover:text-white" to="/signup">Sign Up</Link>
+            </li>
+            <li>
+              <Link className="md:p-4 py-2 block text-red-600 hover:text-white" to="/">Login</Link>
             </li>
           </ul>
         </div>
