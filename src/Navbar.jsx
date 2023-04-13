@@ -30,18 +30,18 @@ function NavBar() {
   <header>
      <nav
         className="
-          flex flex-wrap
-          items-center
-          justify-between
-          w-full
-          py-4
-          md:py-0
-          px-4
-          text-lg text-gray-700
-          bg-white
-        "
+        flex flex-wrap
+        items-center
+        justify-between
+        w-full
+        py-4
+        md:py-0
+        px-4
+        text-lg text-gray-700
+        bg-white
+      "
       >
-        <div className="hidden w-full md:flex md:items-center md:w-auto " id="menu">
+        <div className="flex md:flex md:flex-grow flex-row justify-end space-x-1" id="menu">
           <ul
             className="
               text-base text-gray-700
