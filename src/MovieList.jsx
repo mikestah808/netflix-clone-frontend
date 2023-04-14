@@ -20,11 +20,11 @@ function MovieList() {
 
   
   return (
-    <>
+    <div>
     <Button onClick={createMovieForm}>Add Movie</Button>
     { showMovieForm ? <MovieForm genres={genres}/> : null }
     <div>{renderMovies}</div>
-    </>
+    </div>
   )
 }
 

@@ -41,7 +41,8 @@ function NavBar() {
         bg-black
       "
       >
-        <h4 className='text-red-600 font-bold'>Welcome, {user.first_name.charAt(0).toUpperCase() + user.first_name.slice(1)}!</h4>
+        <h4 className='text-red-600 font-bold items-center'>MOVIE KEEPER</h4>
+        {/* <h4 className='text-red-600 font-bold'>Welcome, {user.first_name.charAt(0).toUpperCase() + user.first_name.slice(1)}!</h4> */}
         <div className="flex md:flex md:flex-grow flex-row justify-end space-x-1" id="menu">
           <ul
             className="
@@ -52,16 +53,16 @@ function NavBar() {
               md:pt-0"
           >
             <li>
-              <Link className="md:p-4 py-2 block text-red-600 hover:text-white" to="/">Home</Link>
+              <Link className="md:p-4 py-2 block text-red-600 font-bold  hover:text-white" to="/">Home</Link>
             </li>
             <li>
-              <Link className="md:p-4 py-2 block text-red-600 hover:text-white" to="/genres">My Genres</Link>
+              <Link className="md:p-4 py-2 block text-red-600 font-bold  hover:text-white" to="/genres">My Genres</Link>
             </li>
             <li>
-              <Link className="md:p-4 py-2 block text-red-600 hover:text-white" to="/movies">My Movies</Link>
+              <Link className="md:p-4 py-2 block text-red-600 font-bold  hover:text-white" to="/movies">My Movies</Link>
             </li>
             <li>
-              <button className="md:p-4 py-2 block text-red-600 hover:text-white" onClick={handleLogout}>Logout</button>
+              <button className="md:p-4 py-2 block text-red-600 font-bold  hover:text-white" onClick={handleLogout}>Logout</button>
             </li>
           </ul>
         </div>
@@ -94,6 +95,7 @@ function NavBar() {
           bg-black
         "
       >
+        <h4 className='text-red-600 font-bold items-center'>MOVIE KEEPER</h4>
         <div className="flex md:flex md:flex-grow flex-row justify-end space-x-1" id="menu">
           <ul
             className="
@@ -105,10 +107,10 @@ function NavBar() {
           >
             <li>
               {/* <button className="md:p-4 py-2 block text-red-600 hover:text-white" to="/signup" component={ Link }>Sign Up</button> */}
-              <Link className="md:p-4 py-2 block text-red-600 hover:text-white" to="/signup">Sign Up</Link>
+              <Link className="md:p-4 py-2 block text-red-600 font-bold hover:text-white" to="/signup">Sign Up</Link>
             </li>
             <li>
-              <Link className="md:p-4 py-2 block text-red-600 hover:text-white" to="/">Login</Link>
+              <Link className="md:p-4 py-2 block text-red-600 font-bold hover:text-white" to="/">Login</Link>
             </li>
           </ul>
         </div>

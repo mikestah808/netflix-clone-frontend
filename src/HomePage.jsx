@@ -17,13 +17,11 @@ function HomePage() {
 
   if(user.first_name){
     return (
-      <>
-      <br />
-      <Button onClick={createGenreForm} variant='outlined'>Add Genre</Button>
+      <div className='flex md:flex md:flex-grow flex-row justify-center'>
       { showGenreForm ? <GenreForm genres={genres} addGenre={addGenre}/> : null }
       <Genres genres={genres}/>
-      <br />
-      </>
+      <button className='text-red-600 font-bold items-center' onClick={createGenreForm} variant='outlined'>ADD GENRE</button>
+      </div>
     )
   } else {
     return (
