@@ -17,8 +17,11 @@ function HomePage() {
   if(user.first_name){
     return (
       <div>
+        <h1 className='text-red-600 flex flex-col font-bold justify-center items-center'>Welcome to Movie Keeper!</h1>
+        <br />
         <Genres genres={genres}/>
       <div className="flex flex-col justify-center items-center">
+        <br />
       <button className='text-red-600 font-bold items-center' onClick={createGenreForm} variant='outlined'>ADD GENRE</button>
       { showGenreForm ? <GenreForm genres={genres} addGenre={addGenre}/> : null }
       </div>
