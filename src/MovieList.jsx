@@ -1,4 +1,3 @@
-import { Button } from '@mui/material'
 import React, { useContext, useState } from 'react'
 import { UserContext } from './context/user'
 import MovieCard from './MovieCard'
@@ -21,7 +20,7 @@ function MovieList() {
   
   return (
     <div>
-    <Button onClick={createMovieForm}>Add Movie</Button>
+    <button className='text-red-600 font-bold' onClick={createMovieForm}>Add Movie</button>
     { showMovieForm ? <MovieForm genres={genres}/> : null }
     <div>{renderMovies}</div>
     </div>

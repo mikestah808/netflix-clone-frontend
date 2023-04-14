@@ -1,30 +1,24 @@
 import React from 'react';
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
+
 
 function GenreSelect({ genres, handleChange, selectedGenre }) {
   
 
   const showGenres = genres.map((genre) => {
-    return <MenuItem value={genre.id} key={genre.id}>{genre.name.toLowerCase()}</MenuItem>
+    return <option value={genre.id} key={genre.id}>{genre.name.charAt(0).toUpperCase() + genre.name.slice(1)}</option>
   })
 
 
   return (
-    <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
-      <InputLabel id="demo-select-small">Genre</InputLabel>
-      <Select
-        labelId="demo-select-small"
-        id="demo-select-small"
+    <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+      <select
         label="Genre"
         onChange={handleChange}
         value={selectedGenre.name}
       >
         {showGenres}
-      </Select>
-    </FormControl>
+      </select>
+    </form>
   );
 }
 
