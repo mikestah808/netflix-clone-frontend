@@ -1,17 +1,13 @@
 import * as React from 'react';
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
 
 function Genre({ genre }) {
 
 
   return (
-    <Box sx={{ '& button': { m: 1 } }}>
       <div>
-        <Button className='btn-group' size="small">{genre.name}</Button>
+        <div className='text-white font-bold'>{genre.name.charAt(0).toUpperCase() + genre.name.slice(1)}</div>
       </div>
-    </Box>
   );
 }
 
-export default Genre
+export default Genre;

@@ -1,6 +1,5 @@
 import React, { useContext, useState } from 'react'
 import { UserContext } from './context/user'
-import Button from '@mui/material/Button'
 import GenreForm from './GenreForm'
 import Genres from './Genres'
 import Login from './authentication/Login'
@@ -17,18 +16,19 @@ function HomePage() {
 
   if(user.first_name){
     return (
-      <div className='flex md:flex md:flex-grow flex-row justify-center'>
-      { showGenreForm ? <GenreForm genres={genres} addGenre={addGenre}/> : null }
-      <Genres genres={genres}/>
+      <div>
+        <Genres genres={genres}/>
+      <div className="flex flex-col justify-center items-center">
       <button className='text-red-600 font-bold items-center' onClick={createGenreForm} variant='outlined'>ADD GENRE</button>
+      { showGenreForm ? <GenreForm genres={genres} addGenre={addGenre}/> : null }
+      </div>
       </div>
     )
   } else {
     return (
-      <>
-      {/* <h3>Welcome to Movie Keeper!</h3> */}
-      <Login /> 
-      </>
+      <div>
+        <Login /> 
+      </div>
     )
   }
 }

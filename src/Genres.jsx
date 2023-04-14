@@ -11,8 +11,8 @@ function Genres({ genres }) {
 
 
   return (
-    <div>
-      {renderGenres}
+    <div className="grid grid-rows-1 grid-flow-col gap-2">
+        {renderGenres}
     </div>
   )
 }
