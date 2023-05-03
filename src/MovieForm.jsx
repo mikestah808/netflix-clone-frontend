@@ -40,8 +40,10 @@ function MovieForm({ genres }) {
 
 
   function handleChange(event){ 
-    const findGenre = genres.find((genre) => genre.id === event.target.value)
+    // debugger;
+    const findGenre = genres.find((genre) => genre.id === parseInt(event.target.value))
     setSelectedGenre(findGenre)
+    // console.log(findGenre.name)
   };
 
 
@@ -68,6 +70,9 @@ function MovieForm({ genres }) {
     .then(newMovie => addMovie(newMovie));
 
     } else {
+      //catch error from the backend
+      //create state to store error 
+      //render error at the bottom of the form
       alert("you forgot something!")
     }
 
