@@ -19,8 +19,8 @@ function MovieList() {
 
   
   return (
-    <div>
-    <button className='text-red-600 font-bold' onClick={createMovieForm}>Add Movie</button>
+    <div className="flex flex-col justify-center items-center">
+    <button className='text-red-600 font-bold' onClick={createMovieForm}>ADD MOVIE</button>
     { showMovieForm ? <MovieForm genres={genres}/> : null }
     <div>{renderMovies}</div>
     </div>
